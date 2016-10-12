@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.anhhong.playmusic.PlayMusic">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_seekbar">
+        <TextView
+            android:gravity="center_vertical"
+            android:text="00:01"
+            android:id="@+id/timeNow"
+            android:layout_width="@dimen/timer"
+            android:layout_height="match_parent" />
+
+        <SeekBar
+            android:thumb="@android:drawable/ic_menu_compass"
+            android:layout_width="0.0dp"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent"
+            android:id="@+id/seekBar" />
+        <TextView
+            android:id="@+id/timeAll"
+            android:gravity="center_vertical|right"
+            android:text="12:32"
+            android:layout_width="@dimen/timer"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_previous"
+            android:layout_width="0.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/previous"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_play"
+            android:layout_width="0.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/play"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_next"
+            android:layout_width="0.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/next"
+            android:layout_weight="0.99" />
+    </LinearLayout>
+</LinearLayout>
