@@ -1,4 +1,4 @@
-package com.anhhong.playmusic;
+package kiat.anhong.music;
 
 import org.junit.Test;
 

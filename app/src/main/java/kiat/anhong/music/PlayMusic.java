@@ -1,16 +1,13 @@
-package com.anhhong.playmusic;
+package kiat.anhong.music;
 
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PlayMusic extends AppCompatActivity {
     private boolean isLocal =true;

@@ -1,4 +1,4 @@
-package com.anhhong.playmusic;
+package kiat.anhong.music;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
