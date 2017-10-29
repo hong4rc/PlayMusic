@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Play Music</string>
+    <string name="play_prev_song">Play prev song</string>
+    <string name="play_pause_song">Play or pause this song</string>
+    <string name="play_next_song">Play next song</string>
+    <string name="tmp_start_time">00:01</string>
+    <string name="tmp_end_time">12:32</string>
 </resources>
