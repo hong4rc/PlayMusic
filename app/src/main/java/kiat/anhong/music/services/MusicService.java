@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import kiat.anhong.music.model.Song;
 
@@ -23,13 +24,15 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
 
     private static final String TAG = "MusicService";
 
-    private static MediaPlayer player;
+    private MediaPlayer player;
+    private ArrayList<Song> songList;
     private final IBinder musicBind = new MusicBinder();
 
     public MusicService() {
     }
 
-    public void playSong(Song song) {
+    public void playSong(int i) {
+        Song song = songList.get(i);
         long id = song.getId();
         player.reset();
         Uri trackUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
@@ -50,8 +53,6 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
 
     @Override
     public boolean onUnbind(Intent intent) {
-        player.stop();
-        player.release();
         return super.onUnbind(intent);
     }
 
@@ -102,6 +103,10 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
         mediaPlayer.start();
+    }
+
+    public void setSongList(ArrayList<Song> songList) {
+        this.songList = songList;
     }
 
     public class MusicBinder extends Binder {

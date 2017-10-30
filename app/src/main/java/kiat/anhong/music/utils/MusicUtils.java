@@ -49,7 +49,7 @@ public class MusicUtils {
 
             songList.add(new Song(id, title, artist));
         } while (mCursor.moveToNext());
-
+        mCursor.close();
         sortSong(songList, Song.TITLE);
         return songList;
     }

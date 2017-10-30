@@ -25,7 +25,6 @@ public class PlayMusicActivity extends AppCompatActivity {
 
     private MusicService musicService;
     private Intent playIntent;
-    private boolean musicBound = false;
     private ServiceConnection connection;
 
     @Override
@@ -57,13 +56,11 @@ public class PlayMusicActivity extends AppCompatActivity {
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 MusicService.MusicBinder binder = (MusicService.MusicBinder) iBinder;
                 musicService = binder.getService();
-
-                musicBound = true;
+                musicService.setSongList(songList);
             }
 
             @Override
             public void onServiceDisconnected(ComponentName componentName) {
-                musicBound = false;
             }
         };
     }
@@ -76,7 +73,7 @@ public class PlayMusicActivity extends AppCompatActivity {
         songAdapter.setOnItemClickListener(new SongAdapter.OnItemClickListener() {
             @Override
             public void onClick(int i) {
-                musicService.playSong(songList.get(i));
+                musicService.playSong(i);
             }
         });
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -86,8 +83,7 @@ public class PlayMusicActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        stopService(playIntent);
-        musicService = null;
+        unbindService(connection);
         super.onDestroy();
     }
 }
